@@ -10,7 +10,8 @@ export class EleveService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:8010/api/eleves";
+  //uri = "http://localhost:8010/api/eleves";
+  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleves";
 
   getEleves():Observable<Eleve[]> {
     return this.http.get<Eleve[]>(this.uri);
