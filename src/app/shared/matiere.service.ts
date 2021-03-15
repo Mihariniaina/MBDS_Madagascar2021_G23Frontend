@@ -10,6 +10,7 @@ export class MatiereService {
 
   constructor(private http: HttpClient) { }
 
+  //uri = "http://localhost:8010/api/matieres";
   uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/matieres";
 
   getMatieres():Observable<Matiere[]> {
