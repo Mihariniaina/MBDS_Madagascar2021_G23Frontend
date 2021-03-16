@@ -1,0 +1,101 @@
+<h3>Détails du devoir</h3>
+<br/>
+<div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title">Devoir de {{devoir.matiere.nom}}</h4>
+          <p class="card-category">Devoir déjà rendu</p>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Elève</label>
+                  <input type="text" class="form-control" value="{{devoir.auteur.nom}}">
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="bmd-label-floating">email de l'élève</label>
+                  <input disabled type="text" class="form-control" value="{{devoir.auteur.mail}}">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Date de naissance</label>
+                  <input disabled type="text" class="form-control" value="{{devoir.auteur.dateNaissance | date:'dd/MM/YYYY'}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Matière</label>
+                  <input type="text" class="form-control" value="{{devoir.matiere.nom}}">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Professeur</label>
+                  <input disabled type="text" class="form-control" value="{{devoir.matiere.professeur}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Remarque</label>
+                  <input type="text" class="form-control" value="{{devoir.remarque}}">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Note</label>
+                  <input type="text" class="form-control" value="{{devoir.note}} / 20">
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Mention</label>
+                  <input disabled type="text" class="form-control" value="{{mention}}">
+                </div>
+              </div>
+            </div>
+            <br/>
+            <button type="submit" class="btn btn-primary pull-right">Modifier</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Elève</h3>  
+      <div class="card card-profile">
+        <div class="card-avatar">
+          <a href="javascript:;">
+            <img class="img" src="../assets/img/faces/marc.jpg" />
+          </a>
+        </div>
+        <div class="card-body">
+          <h6 class="card-category text-gray">{{devoir.auteur.nom}}</h6>
+          <h4 class="card-title">{{devoir.auteur.mail}}</h4>
+        </div>
+      </div>
+      <h3>Professeur</h3>
+      <div class="card card-profile">
+        <div class="card-avatar">
+          <a href="javascript:;">
+            <img class="img" src="../assets/img/faces/marc.jpg" />
+          </a>
+        </div>
+        <div class="card-body">
+          <h6 class="card-category text-gray">{{devoir.matiere.professeur}}</h6>
+          <h4 class="card-title">Professeur de {{devoir.matiere.nom}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>

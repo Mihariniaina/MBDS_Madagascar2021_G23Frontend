@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { DevoirComponent } from './devoir/devoir.component';
 import { EleveComponent } from './eleve/eleve.component';
 import { MatiereComponent } from './matiere/matiere.component';
+import { DevoirDetailsComponent } from './devoir/devoir-details/devoir-details.component';
 
 const routes:Routes = [
   {
@@ -33,6 +34,10 @@ const routes:Routes = [
   {
     path:"devoirs",
     component:DevoirComponent
+  },
+  {
+    path:"devoir/:id",
+    component:DevoirDetailsComponent
   }
 ]
 
@@ -42,6 +47,7 @@ const routes:Routes = [
     EleveComponent,
     MatiereComponent,
     DevoirComponent,
+    DevoirDetailsComponent,
   ],
   imports: [
     BrowserModule,

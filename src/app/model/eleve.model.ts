@@ -3,4 +3,5 @@ export class Eleve {
     nom: string;
     mail: string;
     dateNaissance: Date;
+    photo: string;
 }
