@@ -6,15 +6,22 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { Routes, RouterModule } from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
+import { FormsModule } from '@angular/forms';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {DatePipe} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { DevoirComponent } from './devoir/devoir.component';
 import { EleveComponent } from './eleve/eleve.component';
 import { MatiereComponent } from './matiere/matiere.component';
 import { DevoirDetailsComponent } from './devoir/devoir-details/devoir-details.component';
+import { ModifierComponent } from './message/modifier/modifier.component';
+import { DevoirAjoutComponent } from './devoir/devoir-ajout/devoir-ajout.component';
 
 const routes:Routes = [
   {
@@ -38,6 +45,10 @@ const routes:Routes = [
   {
     path:"devoir/:id",
     component:DevoirDetailsComponent
+  },
+  {
+    path:"ajoutDevoir",
+    component:DevoirAjoutComponent
   }
 ]
 
@@ -48,6 +59,8 @@ const routes:Routes = [
     MatiereComponent,
     DevoirComponent,
     DevoirDetailsComponent,
+    ModifierComponent,
+    DevoirAjoutComponent
   ],
   imports: [
     BrowserModule,
@@ -59,12 +72,11 @@ const routes:Routes = [
     HttpClientModule,
     MatMenuModule, 
     MatTabsModule,
+    FormsModule,
+    MatSnackBarModule, BrowserAnimationsModule,
     RouterModule.forRoot(routes)
   ],
-  // exports: [
-  //   //MatTabsModule
-  // ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

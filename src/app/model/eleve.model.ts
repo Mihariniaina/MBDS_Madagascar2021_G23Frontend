@@ -4,4 +4,5 @@ export class Eleve {
     mail: string;
     dateNaissance: Date;
     photo: string;
+    photoGF: string;
 }

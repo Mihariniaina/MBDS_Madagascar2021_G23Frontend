@@ -1,6 +1,12 @@
 <div>
-  <button class="btn" (click)="getDevoirsRendus()">Rendu</button>
-  <button class="btn" (click)="getDevoirsNonRendus()">Non-rendu</button>
+  <a routerLink="/ajoutDevoir">
+    <button class="btn btn-primary aDroite" mat-button>
+      <mat-icon inline=true>playlist_add</mat-icon>
+      Ajouter un devoir
+    </button>
+  </a>
+  <button class="btn btn-outline-secondary" (click)="getDevoirsRendus()">Rendu</button>
+  <button class="btn btn-outline-secondary" (click)="getDevoirsNonRendus()">Non-rendu</button>
 </div>
 <br/>
 <h3>Listes des devoirs {{etat}}</h3>
@@ -9,7 +15,7 @@
     <div class="col-md-4" *ngFor="let devoir of devoirs">
       <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
+          <div mat-card-avatar class="example-header-image" style="background-image: url('../../assets/img/faces/{{ devoir.auteur.photo }}');"></div>
           <mat-card-title>Devoir de {{devoir.matiere.nom}}</mat-card-title>
           <mat-card-subtitle>
             <a routerLink="/devoir/{{devoir._id}}">
@@ -19,9 +25,9 @@
         </mat-card-header>
         <mat-card-content>
           <p>Elève: {{devoir.auteur.nom}}</p>
-          <p>Date de rendu: {{devoir.dateDeRendu | date}}</p>
+          <p *ngIf="devoir.rendu">Date de rendu: {{devoir.dateDeRendu | date}}</p>
           <div>
-            <div mat-card-avatar class="example-header-image" style="float:right"></div>
+            <div mat-card-avatar class="example-header-image" style="float:right; background-image: url('../../assets/img/faces/{{ devoir.matiere.photoProfesseur }}');"></div>
             <p>Professeur: {{devoir.matiere.professeur}}</p>
           </div>
         </mat-card-content>

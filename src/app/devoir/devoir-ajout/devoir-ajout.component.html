@@ -1,12 +1,11 @@
-<h3>Détails du devoir</h3>
+<h3>Ajouter un devoir</h3>
 <br/>
 <div class="row">
     <div class="col-md-8">
       <div class="card">
         <div class="card-header card-header-primary">
-          <h4 class="card-title">Devoir de {{devoir.matiere.nom}}</h4>
-          <p *ngIf="devoir.rendu" class="card-category">Devoir rendu le {{devoir.dateDeRendu | date:'dd/MM/YYYY'}}</p>
-          <p *ngIf="!devoir.rendu" class="card-category">Devoir non rendu</p>
+          <h4 class="card-title">Devoir à ajouter</h4>
+          <p class="card-category">Veuillez renseigner les champs ci-dessous</p>
         </div>
         <div class="card-body">
           <form ngForm >
@@ -15,9 +14,9 @@
                 <div class="form-group">
                   <label class="bmd-label-floating">Elève</label>
                   <select id="idEleve" class="form-control selectRna" (change)="changementEleve($event.target.value)">
+                      <option value="0">-- Séléctionner un élève --</option>
                     <ng-container *ngFor="let eleve of eleves">
-                      <option *ngIf="eleve._id == devoir.auteur._id" selected="selected" value="{{eleve._id}}">{{eleve.nom}}</option>
-                      <option *ngIf="eleve._id != devoir.auteur._id" value="{{eleve._id}}">{{eleve.nom}}</option>
+                      <option value="{{eleve._id}}">{{eleve.nom}}</option>
                     </ng-container>
                   </select>
                 </div>
@@ -40,9 +39,9 @@
                 <div class="form-group">
                   <label class="bmd-label-floating">Matière</label>
                   <select id="idMatiere" class="form-control selectRna" (change)="changementMatiere($event.target.value)">
+                      <option value="0">-- Séléctionner une matière --</option>
                     <ng-container *ngFor="let matiere of matieres">
-                      <option *ngIf="matiere._id == devoir.matiere._id" selected="selected" value="{{matiere._id}}">{{matiere.nom}}</option>
-                      <option *ngIf="matiere._id != devoir.matiere._id" value="{{matiere._id}}">{{matiere.nom}}</option>
+                      <option value="{{matiere._id}}">{{matiere.nom}}</option>
                     </ng-container>
                   </select>
                 </div>
@@ -77,7 +76,7 @@
               </div>
             </div>
             <br/>
-            <button (click)="modifierDevoir($event)" class="btn btn-primary pull-right">Modifier</button>
+            <button (click)="ajoutDevoir($event)" class="btn btn-primary pull-right">Ajouter</button>
             <button (click)="retour()" class="btn btn-outline-secondary pull-right">Retour</button>
             <div class="clearfix"></div>
           </form>
@@ -89,7 +88,7 @@
       <div class="card card-profile">
         <div class="card-avatar">
           <a href="javascript:;">
-            <img class="img" src="../assets/img/faces/{{photoEleve}}" />
+            <img class="img" src="../assets/img/faces/{{photoEleve}}" alt="Aucune photo"/>
           </a>
         </div>
           <div class="card-body">
@@ -101,7 +100,7 @@
       <div class="card card-profile">
         <div class="card-avatar">
           <a href="javascript:;">
-            <img class="img" src="../assets/img/faces/{{photoProfesseur}}" />
+            <img class="img" src="../assets/img/faces/{{photoProfesseur}}" alt="Aucune photo"/>
           </a>
         </div>
         <div class="card-body">
