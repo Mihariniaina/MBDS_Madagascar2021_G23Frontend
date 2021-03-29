@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
   // styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  //if token does not exist isLogged == false
+  public isLogged: boolean;
+  public username: string;
 
-  
+  constructor(
+    private router: Router
+    ) { }
+
+  public deconexion() {
+    sessionStorage.clear();
+    this.isLogged = false;
+    this.router.navigate(['/']);
+  }
 }

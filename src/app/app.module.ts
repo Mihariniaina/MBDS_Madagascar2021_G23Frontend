@@ -10,17 +10,20 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTabsModule} from '@angular/material/tabs';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { DevoirComponent } from './devoir/devoir.component';
 import { EleveComponent } from './eleve/eleve.component';
 import { MatiereComponent } from './matiere/matiere.component';
+import { LoginComponent } from './login/login.component';
 
 const routes:Routes = [
   {
     // indique que http://localhost:4200 sans rien ou avec un "/" à la fin
     // doit afficher le composant AssignmentsComponent (celui qui affiche la liste)
     path:"",
-    component:DevoirComponent
+    component:LoginComponent
   },
   {
     path:"eleves",
@@ -42,6 +45,7 @@ const routes:Routes = [
     EleveComponent,
     MatiereComponent,
     DevoirComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ const routes:Routes = [
     HttpClientModule,
     MatMenuModule, 
     MatTabsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   // exports: [

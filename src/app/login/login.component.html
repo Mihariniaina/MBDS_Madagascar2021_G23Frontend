@@ -1,0 +1,31 @@
+    <div class="row" style="top: 30%; margin-left: -260px;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="background-image: linear-gradient(180deg,rgba(248,248,248,0.5) 10%,rgba(180,217,246, 0.5) 100%); border-radius: 10px; ">
+            <div class="card card-signin my-5" >
+                <div class="card-body">
+                    <h2 class="card-title text-center"><i class="fas fa-laugh-wink"></i> ASSIGNMENT-APP </h2>
+                    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="username">Nom</label>
+                            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">First Name is required</div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                        </div>
+                        <button id="submit"  class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Se connecter</button>
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
