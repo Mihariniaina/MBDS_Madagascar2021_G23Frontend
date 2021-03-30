@@ -1,6 +1,9 @@
 <h2>Liste des matières</h2>
 <hr>
 <br/>
+<div class="align-center">
+  <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+</div>
 <div *ngFor="let matiere of matieres">
     <div class="row">
         <div class="col-lg-6 col-md-12">

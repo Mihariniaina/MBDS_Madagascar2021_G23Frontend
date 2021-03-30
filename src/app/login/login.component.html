@@ -3,6 +3,9 @@
         <div class="col-md-6" style="background-image: linear-gradient(180deg,rgba(248,248,248,0.5) 10%,rgba(180,217,246, 0.5) 100%); border-radius: 10px; ">
             <div class="card card-signin my-5" >
                 <div class="card-body">
+                    <div class="align-center">
+                        <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+                    </div>
                     <h2 class="card-title text-center"><i class="fas fa-laugh-wink"></i> ASSIGNMENT-APP </h2>
                     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">

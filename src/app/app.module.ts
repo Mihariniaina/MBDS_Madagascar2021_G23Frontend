@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import {DatePipe} from '@angular/common';
 
@@ -32,7 +33,6 @@ import { AideComponent } from './aide/aide.component';
 const routes:Routes = [
   {
     // indique que http://localhost:4200 sans rien ou avec un "/" à la fin
-    // doit afficher le composant AssignmentsComponent (celui qui affiche la liste)
     path:"",
     component:LoginComponent
   },
@@ -89,6 +89,7 @@ const routes:Routes = [
     MatSnackBarModule, BrowserAnimationsModule,
     ReactiveFormsModule,
     ScrollingModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot(routes)
   ],
   providers: [DatePipe],

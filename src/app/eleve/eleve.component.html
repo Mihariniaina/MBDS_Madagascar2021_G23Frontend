@@ -1,6 +1,9 @@
 <h2>Listes des élèves</h2>
 <hr>
 <br/>
+<div class="align-center">
+  <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-6" *ngFor="let eleve of eleves">

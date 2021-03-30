@@ -9,6 +9,7 @@ import { EleveService } from '../shared/eleve.service';
 })
 export class EleveComponent implements OnInit {
   eleves: Eleve[];
+  resourcesLoaded = true;
 
   constructor(private eleveService: EleveService) { }
 
@@ -19,6 +20,7 @@ export class EleveComponent implements OnInit {
   getEleves(){
     this.eleveService.getEleves()
       .subscribe(data => {
+        this.resourcesLoaded = false;
         this.eleves = data;        
       });
   }

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ajout.component.css']
 })
 export class AjoutComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

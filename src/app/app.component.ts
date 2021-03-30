@@ -9,16 +9,17 @@ import {Router} from "@angular/router"
 })
 export class AppComponent {
   //if token does not exist isLogged == false
-  public isLogged: boolean;
   public username: string = "Rilah";
+  sessionConnecte = sessionStorage.getItem('token');
 
   constructor(
     private router: Router
-    ) { }
+  ){}
 
   public deconexion() {
     sessionStorage.clear();
-    this.isLogged = false;
-    this.router.navigate(['/']);
+    this.router.navigate(['/']).then(() => {
+      window.location.reload();
+    });;
   }
 }

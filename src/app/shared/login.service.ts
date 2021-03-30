@@ -10,8 +10,8 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  //uri = "http://localhost:8010/api/users";
-  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/users";
+  //uri = "http://localhost:8010/api/users/";
+  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/users/";
 
   //configUrl = "http://localhost:8010/api/login";
   configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/login";
@@ -30,8 +30,8 @@ export class LoginService {
     // }
     // return true;
     //get valiny hoe misy anle username ve am back sa tsia?
-    this.uri = "http://localhost:8010/api/users/"+username;
-    return this.http.get<User>(this.uri)
+    //this.uri = "http://localhost:8010/api/users/"+username;
+    return this.http.get<User>(this.uri+username);
   }
 
   getToken(id: string, name: string, mail: String, password: string): Observable<any> {

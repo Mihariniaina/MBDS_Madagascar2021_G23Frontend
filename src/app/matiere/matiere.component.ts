@@ -9,6 +9,7 @@ import { MatiereService } from '../shared/matiere.service';
 })
 export class MatiereComponent implements OnInit {
   matieres: Matiere[];
+  resourcesLoaded = true;
 
   constructor(private matiereService: MatiereService) { }
 
@@ -19,6 +20,7 @@ export class MatiereComponent implements OnInit {
   getMatieres(){
     this.matiereService.getMatieres()
       .subscribe(data => {
+        this.resourcesLoaded = false;
         this.matieres = data;        
       });
   }

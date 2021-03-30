@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modifier.component.css']
 })
 export class ModifierComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit(): void {

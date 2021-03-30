@@ -16,6 +16,7 @@ import { ModifierComponent } from 'src/app/message/modifier/modifier.component';
   styleUrls: ['./devoir-details.component.css', '../../../assets/css/material-dashboard.css?v=2.1.2']
 })
 export class DevoirDetailsComponent implements OnInit {
+  resourcesLoaded = true;
   id = this.route.snapshot.params.id;
   devoir: Devoir;
   mention = "";
@@ -72,6 +73,7 @@ export class DevoirDetailsComponent implements OnInit {
         this.estRendu = data.rendu;
         this.mention = this.devoirService.mentionEleve(data.note);
         this.nomDevoir = data.nomDevoir;
+        this.resourcesLoaded = false;
       });
   }
 

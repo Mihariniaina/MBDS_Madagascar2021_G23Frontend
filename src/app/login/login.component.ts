@@ -13,10 +13,10 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./login.component.css', '../../assets/css/material-dashboard.css?v=2.1.2']
 })
 export class LoginComponent implements OnInit {
+  resourcesLoaded = false;
   checkoutForm: FormGroup;
   submitted = false;
   userLog: User
-  isLogged: Boolean
   user = "";
   formPass = "";
   dbPass = "";
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   }
   
   onSubmit(): void {
+    this.resourcesLoaded = true;
     this.submitted = true;
 
     if (this.checkoutForm.invalid) {
@@ -77,9 +78,10 @@ export class LoginComponent implements OnInit {
                       console.warn('YES2', result2.token);
                       //add token to session
                       sessionStorage.setItem('token', result2.token);
-                      this.appComponent.isLogged = true;
                       this.appComponent.username = result.name;
-                      this.router.navigate(['/devoirs']);
+                      this.router.navigate(['/devoirs']).then(() => {
+                        window.location.reload();
+                      });
                     }
                     else{
                       console.warn('NO', "No token match");
