@@ -5,6 +5,7 @@ export class Devoir {
     _id?: string;
     auteur: Eleve;
     matiere: Matiere;
+    nomDevoir: string;
     note: number;
     rendu: boolean;
     dateDeRendu: Date;

@@ -22,6 +22,7 @@ import { MatiereComponent } from './matiere/matiere.component';
 import { DevoirDetailsComponent } from './devoir/devoir-details/devoir-details.component';
 import { ModifierComponent } from './message/modifier/modifier.component';
 import { DevoirAjoutComponent } from './devoir/devoir-ajout/devoir-ajout.component';
+import { AjoutComponent } from './message/ajout/ajout.component';
 
 const routes:Routes = [
   {
@@ -60,7 +61,8 @@ const routes:Routes = [
     DevoirComponent,
     DevoirDetailsComponent,
     ModifierComponent,
-    DevoirAjoutComponent
+    DevoirAjoutComponent,
+    AjoutComponent
   ],
   imports: [
     BrowserModule,

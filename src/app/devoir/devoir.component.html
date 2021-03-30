@@ -24,6 +24,7 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
+          <p>Devoir: {{devoir.nomDevoir}}</p>
           <p>Elève: {{devoir.auteur.nom}}</p>
           <p *ngIf="devoir.rendu">Date de rendu: {{devoir.dateDeRendu | date}}</p>
           <div>
@@ -32,6 +33,7 @@
           </div>
         </mat-card-content>
       </mat-card>  
+      <br/><br/>
     </div>
   </div>
 </div>

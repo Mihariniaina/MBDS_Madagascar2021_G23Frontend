@@ -33,6 +33,7 @@ export class DevoirDetailsComponent implements OnInit {
   note = 0;
   noteTxt = "";
   estRendu: Boolean;
+  nomDevoir = "";
 
   constructor(private devoirService: DevoirService,
               private route: ActivatedRoute,
@@ -70,6 +71,7 @@ export class DevoirDetailsComponent implements OnInit {
         }
         this.estRendu = data.rendu;
         this.mention = this.devoirService.mentionEleve(data.note);
+        this.nomDevoir = data.nomDevoir;
       });
   }
 
@@ -155,6 +157,7 @@ export class DevoirDetailsComponent implements OnInit {
       this.devoir.rendu = true;
       this.devoir.dateDeRendu = new Date();
     }
+    this.devoir.nomDevoir = this.nomDevoir;
 
     this.devoirService.modifierDevoir(this.devoir)
       .subscribe(message => {
