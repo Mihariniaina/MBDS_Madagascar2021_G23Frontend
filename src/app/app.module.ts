@@ -12,6 +12,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 import {DatePipe} from '@angular/common';
 
@@ -26,6 +27,7 @@ import { ModifierComponent } from './message/modifier/modifier.component';
 import { DevoirAjoutComponent } from './devoir/devoir-ajout/devoir-ajout.component';
 import { AjoutComponent } from './message/ajout/ajout.component';
 import { LoginComponent } from './login/login.component';
+import { AideComponent } from './aide/aide.component';
 
 const routes:Routes = [
   {
@@ -53,6 +55,10 @@ const routes:Routes = [
   {
     path:"ajoutDevoir",
     component:DevoirAjoutComponent
+  },
+  {
+    path:"aide",
+    component:AideComponent
   }
 ]
 
@@ -66,7 +72,8 @@ const routes:Routes = [
     ModifierComponent,
     DevoirAjoutComponent,
     AjoutComponent,
-    LoginComponent
+    LoginComponent,
+    AideComponent
   ],
   imports: [
     BrowserModule,
@@ -81,6 +88,7 @@ const routes:Routes = [
     FormsModule,
     MatSnackBarModule, BrowserAnimationsModule,
     ReactiveFormsModule,
+    ScrollingModule,
     RouterModule.forRoot(routes)
   ],
   providers: [DatePipe],
