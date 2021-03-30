@@ -15,21 +15,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {DatePipe} from '@angular/common';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { DevoirComponent } from './devoir/devoir.component';
 import { EleveComponent } from './eleve/eleve.component';
-import { MatiereComponent } from './matiere/matiere.component';
+import { MatiereComponent } from './matiere/matiere.component'
 import { DevoirDetailsComponent } from './devoir/devoir-details/devoir-details.component';
 import { ModifierComponent } from './message/modifier/modifier.component';
 import { DevoirAjoutComponent } from './devoir/devoir-ajout/devoir-ajout.component';
 import { AjoutComponent } from './message/ajout/ajout.component';
+import { LoginComponent } from './login/login.component';
 
 const routes:Routes = [
   {
     // indique que http://localhost:4200 sans rien ou avec un "/" à la fin
     // doit afficher le composant AssignmentsComponent (celui qui affiche la liste)
     path:"",
-    component:DevoirComponent
+    component:LoginComponent
   },
   {
     path:"eleves",
@@ -62,7 +65,8 @@ const routes:Routes = [
     DevoirDetailsComponent,
     ModifierComponent,
     DevoirAjoutComponent,
-    AjoutComponent
+    AjoutComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,7 @@ const routes:Routes = [
     MatTabsModule,
     FormsModule,
     MatSnackBarModule, BrowserAnimationsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [DatePipe],

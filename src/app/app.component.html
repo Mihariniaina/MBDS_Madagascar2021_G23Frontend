@@ -1,85 +1,90 @@
 <div class="wrapper ">
-  <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
-    <!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+  <nav *ngIf="isLogged">
+    <div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-      Tip 2: you can also add an image using data-image tag
-  -->
-    <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-        Assignment-app
-      </a></div>
-    <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="nav-item active  ">
-          <a class="nav-link" routerLink="/devoirs">
-            <i class="material-icons">library_books</i>
-            <p>Devoir</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/eleves">
-            <i class="material-icons">person</i>
-            <p>Eleve</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/matieres">
-            <i class="material-icons">school</i>
-            <p>Matière</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./tables.html">
-            <i class="material-icons">tag_faces</i>
-            <p>Aide</p>
-          </a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="./tables.html">
-            <i class="material-icons">settings_power</i>
-            <p>Déconnexion</p>
-          </a>
-        </li>
-      </ul>
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
+          Assignment-app
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" routerLink="/devoirs">
+              <i class="material-icons">library_books</i>
+              <p>Devoir</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/eleves">
+              <i class="material-icons">person</i>
+              <p>Eleve</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/matieres">
+              <i class="material-icons">school</i>
+              <p>Matière</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="#">
+              <i class="material-icons">tag_faces</i>
+              <p>Aide</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="deconexion()">
+              <i class="material-icons">settings_power</i>
+              <p>Déconnexion</p>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  </nav>
   <div class="main-panel">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
-      <div class="container-fluid">
-        <div class="navbar-wrapper">
-          <form class="navbar-form">
-            <div class="input-group no-border">
-              <input type="text" value="" class="form-control" placeholder="Recherche  ...">
-              <button type="submit" class="btn btn-white btn-round btn-just-icon">
-                <i class="material-icons">search</i>
-                <div class="ripple-container"></div>
-              </button>
-            </div>
-          </form>
+    <nav *ngIf="isLogged">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Recherche  ...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Username
+                  <i class="material-icons">person</i>
+                  <p class="d-lg-none d-md-block">
+                    Account
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-          <span class="navbar-toggler-icon icon-bar"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-              <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                user Connecté
-                <i class="material-icons">person</i>
-                <p class="d-lg-none d-md-block">
-                  Account
-                </p>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </nav>
     </nav>
     <!-- End Navbar -->
+
 
 
     <div class="content">
@@ -87,6 +92,8 @@
         <router-outlet></router-outlet>
       </div>
     </div>
+
+
     <footer class="footer">
       <div class="container-fluid">
         <nav class="float-left">
@@ -104,6 +111,7 @@
       </div>
     </footer>
   </div>
+ 
 </div>
 <div class="fixed-plugin">
   <div class="dropdown show-dropdown">
