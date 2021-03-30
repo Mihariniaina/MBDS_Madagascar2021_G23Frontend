@@ -10,11 +10,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:8010/api/users";
-  //uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleves";
+  //uri = "http://localhost:8010/api/users";
+  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/users";
 
-  configUrl = "http://localhost:8010/api/login";
-  //configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/login";
+  //configUrl = "http://localhost:8010/api/login";
+  configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/login";
 
   getItems(): String {
     return "hero";

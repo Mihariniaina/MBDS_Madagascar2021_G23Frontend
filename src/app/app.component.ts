@@ -10,7 +10,7 @@ import {Router} from "@angular/router"
 export class AppComponent {
   //if token does not exist isLogged == false
   public isLogged: boolean;
-  public username: string;
+  public username: string = "Rilah";
 
   constructor(
     private router: Router

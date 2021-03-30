@@ -11,11 +11,11 @@ export class EleveService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:8010/api/eleves";
-  //uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleves";
+  //uri = "http://localhost:8010/api/eleves";
+  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleves";
 
-  uriSingulier = "http://localhost:8010/api/eleve/";
-  //uriSingulier = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleve/";
+  //uriSingulier = "http://localhost:8010/api/eleve/";
+  uriSingulier = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleve/";
 
   getEleves():Observable<Eleve[]> {
     return this.http.get<Eleve[]>(this.uri);
