@@ -8,13 +8,18 @@ import { User } from '../model/user.model';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+    ) { }
 
-  //uri = "http://localhost:8010/api/users";
-  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/users";
+  uri = "http://localhost:8010/api/users";
+  //uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/users";
 
-  //configUrl = "http://localhost:8010/api/login";
-  configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/login";
+  configUrl = "http://localhost:8010/api/login";
+  //configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/login";
+
+  protected = "http://localhost:8010/api/protected";
+  //configUrl = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/protected";
 
   getItems(): String {
     return "hero";
@@ -44,4 +49,32 @@ export class LoginService {
         });
   }
 
+  getData():Observable<any> {
+    const options = this.formOption(true);
+    // if(this.http.get<User[]>(this.uri) == null){
+    //   return false;
+    // }
+    // return true;
+    //get valiny hoe misy anle username ve am back sa tsia?
+    //return this.http.get<any[]>(this.protected)
+    // const headers= new HttpHeaders()
+    // .set('authorization', sessionStorage.getItem("authorization"));
+    // console.warn('YES2', headers);
+    return this.http.get(this.protected, options)
+  }
+
+  formOption (use_authoriszation = false){
+    const option = {
+      headers : {
+        'Content-Type' : 'application/json',
+        'Authorisation' : ''
+      }
+    };
+
+    if (use_authoriszation){
+      option['headers']['Authorisation'] = 'Bearer ' + sessionStorage.getItem('token');
+    }
+    return option;
+  }
+  
 }

@@ -5,6 +5,7 @@ import { LoginService } from '../shared/login.service';
 import * as bcrypt from 'bcryptjs'; 
 import { User } from '../model/user.model';
 import { AppComponent } from '../app.component';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -59,8 +60,9 @@ export class LoginComponent implements OnInit {
       result => {
           if (result) { //misy ao am base ilay username
             //get dataPass(encripted)
+            sessionStorage.setItem('username', result.name);
             this.dbPass = result.password;
-            console.warn('ITO1', "misy ao am bdd =>"+this.dbPass);
+            console.warn('ITO1', "misy ao am bdd =>"+ sessionStorage.getItem('username'));
 
             //compare formPass, with dataHashPash
             //console.warn('Hash', this.pass);
@@ -73,25 +75,23 @@ export class LoginComponent implements OnInit {
                 //service.get token for this user
                 this.loginService.getToken(result._id, result.name, result.mail, result.password).subscribe(
                   result2 => {
-                    if(result2){
-                      console.warn('YES2', result2.token);
+                    if(result2){ 
                       //add token to session
                       sessionStorage.setItem('token', result2.token);
-                      this.appComponent.isLogged = true;
-                      this.appComponent.username = result.name;
+                      //this.appComponent.isLogged = true;
                       this.router.navigate(['/devoirs']);
+                      //window.location.reload();
                     }
                     else{
                       console.warn('NO', "No token match");
                     }
                   }
-                )
+                );
                 
                 //redirect to app.components and set isLogged = true
               }
               else{
                 console.warn('NO', "Password invalide");
-                
               }
             });
           }
