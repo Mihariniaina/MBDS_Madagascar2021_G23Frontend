@@ -22,6 +22,8 @@ export class LoginComponent implements OnInit {
   formPass = "";
   dbPass = "";
   pass = "";
+  name = 'Rilah';
+  password = 'rilahmdp';
   
   constructor(
     private formBuilder: FormBuilder,
