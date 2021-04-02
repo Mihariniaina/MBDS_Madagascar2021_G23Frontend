@@ -10,7 +10,8 @@ import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css', '../../assets/css/material-dashboard.css?v=2.1.2']
+  styleUrls: ['./login.component.css', '../../assets/css/material-dashboard.css?v=2.1.2'],
+  styles: [`::ng-deep .light-gray{background-image: url(./assets/img/back.jpg); background-repeat: no-repeat; background-size: 100%;}`]
 })
 export class LoginComponent implements OnInit {
   resourcesLoaded = false;
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit {
   formPass = "";
   dbPass = "";
   pass = "";
+  name = 'Rilah';
+  password = 'rilahmdp';
   
   constructor(
     private formBuilder: FormBuilder,
@@ -78,6 +81,7 @@ export class LoginComponent implements OnInit {
                       console.warn('YES2', result2.token);
                       //add token to session
                       sessionStorage.setItem('token', result2.token);
+                      sessionStorage.setItem('username', result.name);
                       this.appComponent.username = result.name;
                       this.router.navigate(['/devoirs']).then(() => {
                         window.location.reload();

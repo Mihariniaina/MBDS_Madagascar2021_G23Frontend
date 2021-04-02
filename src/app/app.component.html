@@ -14,31 +14,31 @@
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="nav-item active  ">
-            <a class="nav-link" routerLink="/devoirs">
+          <li class="nav-item {{active1}}">
+            <a class="nav-link" routerLink="/devoirs" (click)="actif1()">
               <i class="material-icons">library_books</i>
               <p>Devoir</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{active2}}" (click)="actif2()">
             <a class="nav-link" routerLink="/eleves">
               <i class="material-icons">person</i>
               <p>Eleve</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{active3}}" (click)="actif3()">
             <a class="nav-link" routerLink="/matieres">
               <i class="material-icons">school</i>
               <p>Matière</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" routerLink="/aide">
+          <li class="nav-item {{active4}}" (click)="actif4()">
+            <a class="nav-link" routerLink="/aide" style ="background-color: {{active4}}">
               <i class="material-icons">tag_faces</i>
               <p>Aide</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item {{active5}}">
             <a class="nav-link" (click)="deconexion()">
               <i class="material-icons">settings_power</i>
               <p>Déconnexion</p>
