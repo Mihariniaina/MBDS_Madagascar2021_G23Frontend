@@ -14,7 +14,8 @@
   <div class="align-center">
       <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
   </div>
-  <div class="container" *ngIf="!resourcesLoaded">
+  <!-- <div class="container" *ngIf="affichageDevoir"> -->
+  <div class="container">
     <div class="row">
       <div class="col-md-4" *cdkVirtualFor="let devoir of devoirs">
         <mat-card class="example-card">

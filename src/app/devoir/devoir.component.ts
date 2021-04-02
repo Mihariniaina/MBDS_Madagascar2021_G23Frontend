@@ -12,6 +12,7 @@ export class DevoirComponent implements OnInit {
   devoirs: Devoir[];
   etat = "";
   resourcesLoaded = true;
+  //affichageDevoir = false;
   
   constructor(private devoirService: DevoirService, 
               private fonctionService: FonctionService) { }
@@ -23,22 +24,26 @@ export class DevoirComponent implements OnInit {
   }
 
   getDevoirsRendus(){
+    //this.affichageDevoir = false;
     this.resourcesLoaded = true;
     this.etat = "rendus";
     this.devoirService.getDevoirsRendus()
       .subscribe(data => {
-        this.resourcesLoaded = false;
         this.devoirs = data;
+        this.resourcesLoaded = false;
+        //this.affichageDevoir = true;
       });
   }
 
   getDevoirsNonRendus(){
+    //this.affichageDevoir = false;
     this.resourcesLoaded = true;
     this.etat = "non rendus";
     this.devoirService.getDevoirsNonRendus()
       .subscribe(data => {
-        this.resourcesLoaded = false;
         this.devoirs = data;
+        this.resourcesLoaded = false;
+        //this.affichageDevoir = true;
       });
   }
 }
