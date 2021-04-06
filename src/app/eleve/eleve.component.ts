@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Aggregate } from '../model/aggregate.model';
 import { Eleve } from '../model/eleve.model';
 import { DevoirService } from '../shared/devoir.service';
 import { EleveService } from '../shared/eleve.service';
@@ -11,8 +12,8 @@ import { EleveService } from '../shared/eleve.service';
 export class EleveComponent implements OnInit {
   eleves: Eleve[];
   resourcesLoaded = true;
-  nbDevoirsRendus: number[] = [];
-  moyennesEleve: number[] = [];
+  nbDevoirsRendus: any[] = [];
+  moyennesEleve: any[] = [];
 
   constructor(
     private eleveService: EleveService,
@@ -32,15 +33,15 @@ export class EleveComponent implements OnInit {
         for(var i = 0; i < tailleEleves; i++){
           var idEleve = this.eleves[i]._id;
           this.devoirService.getNbDevoirRenduEleve(idEleve)
-          .subscribe(dataNbDevoir=> {  
-            this.nbDevoirsRendus.push(dataNbDevoir); 
+          .subscribe(dataNbDevoir => {  
+            this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat; 
           });
           
           // moyenne eleve
           this.eleveService.getMoyenneEleve(idEleve)
           .subscribe(dataMoyenne => { 
-            var moyennes = dataMoyenne[0].moyenne;
-            this.moyennesEleve.push(moyennes);
+            this.moyennesEleve[dataMoyenne._id] = dataMoyenne.resultat; 
+            console.log("moyenne de "+dataMoyenne._id+" = "+this.moyennesEleve[dataMoyenne._id]);
           });
         }
 
