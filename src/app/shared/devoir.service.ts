@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Aggregate } from '../model/aggregate.model';
 import { Devoir } from '../model/devoir.model';
 
 @Injectable({
@@ -10,8 +11,8 @@ export class DevoirService {
 
   constructor(private http: HttpClient) { }
 
-  uri = "http://localhost:8010/api/devoirs/";
-  //uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoirs/";
+  //uri = "http://localhost:8010/api/devoirs/";
+  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoirs/";
 
   //uriSingulier = "http://localhost:8010/api/devoir/";
   uriSingulier = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/";
@@ -19,8 +20,8 @@ export class DevoirService {
   //uriNbDevoirRendu = "http://localhost:8010/api/devoir/nbRendu/";
   uriNbDevoirRendu = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/nbRendu/";
 
-  getNbDevoirRenduEleve(id: string):Observable<number> {
-    return this.http.get<number>(this.uriNbDevoirRendu+id);
+  getNbDevoirRenduEleve(id: string):Observable<Aggregate> {
+    return this.http.get<Aggregate>(this.uriNbDevoirRendu+id);
   }
 
   getDevoirsRendus():Observable<Devoir[]> {

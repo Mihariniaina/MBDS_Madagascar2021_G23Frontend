@@ -3,7 +3,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Eleve } from '../model/eleve.model';
-import { Moyenne } from '../model/moyenne.model';
+import { Aggregate } from '../model/aggregate.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,8 @@ export class EleveService {
   //uriMoyenne = "http://localhost:8010/api/eleve/moyenne/";
   uriMoyenne = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/eleve/moyenne/";
 
-  getMoyenneEleve(id: string):Observable<Moyenne> {
-    return this.http.get<Moyenne>(this.uriMoyenne+id);
+  getMoyenneEleve(id: string):Observable<Aggregate> {
+    return this.http.get<Aggregate>(this.uriMoyenne+id);
   }
 
   getEleves():Observable<Eleve[]> {
