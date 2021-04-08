@@ -42,4 +42,14 @@
       </div>
     </div>
   </div>
-</cdk-virtual-scroll-viewport>  
+</cdk-virtual-scroll-viewport> 
+<div class="chart-wrapper">
+  <canvas baseChart 
+  [datasets]="barChartData"
+  [labels]="barChartLabels"
+  [options]="barChartOptions"
+  [plugins]="barChartPlugins"
+  [legend]="barChartLegend"
+  [chartType]="barChartType">
+</canvas>
+</div> 
