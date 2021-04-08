@@ -41,7 +41,6 @@ export class EleveComponent implements OnInit {
           this.eleveService.getMoyenneEleve(idEleve)
           .subscribe(dataMoyenne => { 
             this.moyennesEleve[dataMoyenne._id] = dataMoyenne.resultat; 
-            console.log("moyenne de "+dataMoyenne._id+" = "+this.moyennesEleve[dataMoyenne._id]);
           });
         }
 

@@ -1,0 +1,37 @@
+  <h3>Résultat de la recherche</h3>
+  <h4 class="resultatTexte">{{ resultatTexte }}</h4>
+  <br/>
+  <cdk-virtual-scroll-viewport *ngIf="affichageDevoir" itemSize="50" class="example-viewport">
+  <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
+    <div class="align-center">
+        <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *cdkVirtualFor="let devoir of devoirs">
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image" style="background-image: url('../../assets/img/faces/{{ devoir.auteur.photo }}');"></div>
+              <mat-card-title>Devoir de {{devoir.matiere.nom}}</mat-card-title>
+              <mat-card-subtitle>
+                <a routerLink="/devoir/{{devoir._id}}">
+                  Voir plus de détails
+                </a>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p>Devoir: {{devoir.nomDevoir}}</p>
+              <p>Elève: {{devoir.auteur.nom}}</p>
+              <p *ngIf="devoir.rendu">Date de rendu: {{devoir.dateDeRendu | date}}</p>
+              <p *ngIf="!devoir.rendu">Date de rendu: <span class="resultatTexte">Pas encore rendu</span></p>
+              <div>
+                <div mat-card-avatar class="example-header-image" style="float:right; background-image: url('../../assets/img/faces/{{ devoir.matiere.photoProfesseur }}');"></div>
+                <p>Professeur: {{devoir.matiere.professeur}}</p>
+              </div>
+            </mat-card-content>
+          </mat-card>  
+          <br/><br/>
+        </div>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport>  

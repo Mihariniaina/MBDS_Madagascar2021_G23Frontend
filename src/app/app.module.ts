@@ -29,6 +29,7 @@ import { DevoirAjoutComponent } from './devoir/devoir-ajout/devoir-ajout.compone
 import { AjoutComponent } from './message/ajout/ajout.component';
 import { LoginComponent } from './login/login.component';
 import { AideComponent } from './aide/aide.component';
+import { DevoirRechercheComponent } from './devoir/devoir-recherche/devoir-recherche.component';
 
 const routes:Routes = [
   {
@@ -59,6 +60,10 @@ const routes:Routes = [
   {
     path:"aide",
     component:AideComponent
+  },
+  {
+    path:"recherche/:texte",
+    component:DevoirRechercheComponent
   }
 ]
 
@@ -73,7 +78,8 @@ const routes:Routes = [
     DevoirAjoutComponent,
     AjoutComponent,
     LoginComponent,
-    AideComponent
+    AideComponent,
+    DevoirRechercheComponent
   ],
   imports: [
     BrowserModule,

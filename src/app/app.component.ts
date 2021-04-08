@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {Router} from "@angular/router"
+import {ActivatedRoute, Router} from "@angular/router"
+import { DevoirRechercheComponent } from './devoir/devoir-recherche/devoir-recherche.component';
+import { DevoirService } from './shared/devoir.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +18,12 @@ export class AppComponent {
   active3 = "";
   active4 = "";
   active5 = "";
+  texte = "";
 
   constructor(
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
+    private devoirService: DevoirService
   ){}
 
   ngOnInit() {
@@ -26,14 +31,23 @@ export class AppComponent {
     this.router.navigate(['/devoirs']);
   }
 
+  recherche(){
+    var texteATrasmettre = this.texte;  
+    console.log("texteATrasmettre: "+this.texte);
+    this.router.navigateByUrl('/devoirs', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['/recherche', texteATrasmettre])
+    );
+    this.texte = "";
+  }
+
   public deconexion() {
     sessionStorage.clear();
     this.router.navigate(['/']).then(() => {
       window.location.reload();
-    });;
+    });
   }
+
   public actif1() {
-      console.warn('ACTIVE 1', "mitovy amle tao am bdd le mdp");
       this.active1 = "active";
       this.active2 = "";
       this.active3 = "";
@@ -41,7 +55,6 @@ export class AppComponent {
       this.active5 = "";
   }
   public actif2() {
-      console.warn('ACTIVE 2', "mitovy amle tao am bdd le mdp");
       this.active1 = "";
       this.active2 = "active";
       this.active3 = "";
@@ -50,7 +63,6 @@ export class AppComponent {
       
   }
   public actif3() {
-      console.warn('ACTIVE 3', "mitovy amle tao am bdd le mdp");
       this.active1 = "";
       this.active2 = "";
       this.active3 = "active";
@@ -59,7 +71,6 @@ export class AppComponent {
       
     }
     public actif4() {
-      console.warn('ACTIVE 4', "mitovy amle tao am bdd le mdp");
       this.active1 = "";
       this.active2 = "";
       this.active3 = "";
@@ -68,7 +79,6 @@ export class AppComponent {
       
     }
     public actif5() {
-      console.warn('ACTIVE 5', "mitovy amle tao am bdd le mdp");
       this.active1 = "";
       this.active2 = "";
       this.active3 = "";

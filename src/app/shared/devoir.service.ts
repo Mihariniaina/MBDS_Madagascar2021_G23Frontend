@@ -20,6 +20,13 @@ export class DevoirService {
   //uriNbDevoirRendu = "http://localhost:8010/api/devoir/nbRendu/";
   uriNbDevoirRendu = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/nbRendu/";
 
+  //uriRecherche = "http://localhost:8010/api/devoirs/recherche/";
+  uriRecherche = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoirs/recherche/";
+
+  recherche(texte: string):Observable<Devoir[]> {
+    return this.http.get<Devoir[]>(this.uriRecherche+texte);
+  }
+
   getNbDevoirRenduEleve(id: string):Observable<Aggregate> {
     return this.http.get<Aggregate>(this.uriNbDevoirRendu+id);
   }

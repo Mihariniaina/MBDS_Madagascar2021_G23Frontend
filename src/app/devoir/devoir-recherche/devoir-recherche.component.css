@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-size: cover;
+  }
+  
+  .aDroite{
+    float: right;
+  }
+  
+  .example-viewport {
+    height: 500px;
+    width: 100%;
+    border: 1px solid black;
+  }
+  
+  .example-item {
+    width: 100%;
+  }
+  
+  .align-center{
+    margin-left: 43%;
+  }
+
+.resultatTexte{
+  color: #89229b;
+}  
