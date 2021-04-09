@@ -13,12 +13,25 @@ import { EleveService } from '../shared/eleve.service';
   styleUrls: ['./devoir.component.css', '../../assets/css/material-dashboard.css?v=2.1.2']
 })
 export class DevoirComponent implements OnInit {
+  eleves: Eleve[];
   devoirs: Devoir[];
   etat = "";
+  test;
   resourcesLoaded = true;
-  eleves: Eleve[];
-  nomEleves: string[];
   nbDevoirsRendus: any[] = [];
+  nbDevoirsRendusParEleves: any[] = [];
+  moyennesEleve: any[] = [];
+  nomEleves: string[];
+
+  //bar
+  barChartType: ChartType = 'bar';
+  barChartLabels: string[] = []
+  barChartLegend = true;
+  barChartPlugins = [];
+  barChartData: ChartDataSets[] = [];
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
   //affichageDevoir = false;
 
 
@@ -28,9 +41,9 @@ export class DevoirComponent implements OnInit {
               private eleveService: EleveService) { }
 
   ngOnInit(): void {
-    this.getEleves();
     this.etat = "rendus";
     this.getDevoirsRendus();
+    this.getEleves();
     //this.fonctionService.insertion500Devoirs();
   }
 
@@ -58,35 +71,50 @@ export class DevoirComponent implements OnInit {
       });
   }
 
+
   getEleves(){
     this.eleveService.getEleves()
-      .subscribe(data => {
-        this.eleves = data;
+      . subscribe(data => {
+        var x: any[] = [];
         //nb devoir rendu
+        var mydata = [];
+        this.eleves = data;    
         var tailleEleves = this.eleves.length;
+        console.log("mipoitra 0");
+        var j = -1;
+
+        this.devoirService.getNbDevoirRenduEleve2().subscribe(dataNbDevoir2 => {
+          // j++;
+          //this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat;
+          // this.nbDevoirsRendusParEleves[j] = dataNbDevoir.resultat;
+          mydata = dataNbDevoir2;
+          console.log("Mipoitra 2=="+mydata[0].resultat);
+        });
+
         for(var i = 0; i < tailleEleves; i++){
-          //this.barChartLabels[i] = this.eleves[i].nom;
           var idEleve = this.eleves[i]._id;
-          console.log("dadako");
+          x[i] = this.eleves[i]._id;
+          //name to bar
+          console.log("Mipoitra 1");
+          this.barChartLabels[i] = this.eleves[i].nom;
           this.devoirService.getNbDevoirRenduEleve(idEleve)
           .subscribe(dataNbDevoir => {
-            this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat; 
+            // j++;
+            // //this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat; 
+            // this.nbDevoirsRendusParEleves[j] = dataNbDevoir.resultat;
+            // console.log("Mipoitra 2=="+dataNbDevoir._id);
           });
+          // console.log("Mipoitra 3");
+          // x = [8,2,3,4,5,6,9];
         }
-
+        //console.log("hehe=" + this.nbDevoirsRendusParEleves[0]);
+        //console.log("Mipoitra 4+");
+        
+        this.barChartData = [
+          { data: [8,2,3,4,5,6,7], label: 'Dévoirs rendus' }
+        ];
+        //console.log("Mipoitra 5="+this.barChartData);
         this.resourcesLoaded = false;
       });
   }
-
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  barChartLabels: string[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
-  barChartType: ChartType = 'bar';
-  barChartLegend = true;
-  barChartPlugins = [];
-
-  barChartData: ChartDataSets[] = [
-    { data: [this.nbDevoirsRendus.length, 5, 2, 10, 6, 7], label: 'Rendement des dévoirs' }
-  ];
 }

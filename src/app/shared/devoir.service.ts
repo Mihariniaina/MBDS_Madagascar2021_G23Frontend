@@ -11,17 +11,24 @@ export class DevoirService {
 
   constructor(private http: HttpClient) { }
 
-  //uri = "http://localhost:8010/api/devoirs/";
-  uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoirs/";
+  uri = "http://localhost:8010/api/devoirs/";
+  //uri = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoirs/";
 
-  //uriSingulier = "http://localhost:8010/api/devoir/";
-  uriSingulier = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/";
+  uriSingulier = "http://localhost:8010/api/devoir/";
+  //uriSingulier = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/";
 
-  //uriNbDevoirRendu = "http://localhost:8010/api/devoir/nbRendu/";
-  uriNbDevoirRendu = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/nbRendu/";
+  uriNbDevoirRendu = "http://localhost:8010/api/devoir/nbRendu/";
+  //uriNbDevoirRendu = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/nbRendu/";
+  
+  uriNbDevoirRendu2 = "http://localhost:8010/api/devoir/nbRendu2/";
+  //uriNbDevoirRendu = "https://mbdsmadagascar2021g23backend.herokuapp.com/api/devoir/nbRendu2/";
 
   getNbDevoirRenduEleve(id: string):Observable<Aggregate> {
     return this.http.get<Aggregate>(this.uriNbDevoirRendu+id);
+  }
+
+  getNbDevoirRenduEleve2():Observable<any> {
+    return this.http.get<Aggregate>(this.uriNbDevoirRendu2+"5");
   }
 
   getDevoirsRendus():Observable<Devoir[]> {

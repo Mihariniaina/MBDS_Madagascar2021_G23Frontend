@@ -44,6 +44,10 @@
   </div>
 </cdk-virtual-scroll-viewport> 
 <div class="chart-wrapper">
+  <div class="align-center">
+    <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+  </div>
+  <p>Nombre de devoir rendu: {{ nbDevoirsRendusParEleves[0] }}</p>
   <canvas baseChart 
   [datasets]="barChartData"
   [labels]="barChartLabels"
