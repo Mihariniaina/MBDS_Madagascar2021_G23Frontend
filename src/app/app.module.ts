@@ -30,6 +30,8 @@ import { AjoutComponent } from './message/ajout/ajout.component';
 import { LoginComponent } from './login/login.component';
 import { AideComponent } from './aide/aide.component';
 import { DevoirRechercheComponent } from './devoir/devoir-recherche/devoir-recherche.component';
+//import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 const routes:Routes = [
   {
@@ -80,6 +82,7 @@ const routes:Routes = [
     LoginComponent,
     AideComponent,
     DevoirRechercheComponent
+    //BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +99,7 @@ const routes:Routes = [
     ReactiveFormsModule,
     ScrollingModule,
     MatProgressSpinnerModule,
+    ChartsModule,
     RouterModule.forRoot(routes)
   ],
   providers: [DatePipe],

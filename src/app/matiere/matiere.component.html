@@ -6,7 +6,7 @@
 </div>
 <div *ngFor="let matiere of matieres">
     <div class="row">
-        <div class="col-lg-10 col-md-12">
+        <div class="col-lg-6 col-md-6">
           <div class="card">
             <div class="card-header card-header-tabs card-header-primary">
               <div class="nav-tabs-navigation">
@@ -19,13 +19,13 @@
             <div class="card-body">
               <div class="tab-content">
                 <div class="tab-pane active" id="profile">
-                    <img mat-card-image src="../../assets/img/matiere/{{ matiere.photoMatiere}}" alt="Photo de la matière" width="100 !important">
+                  <img mat-card-image src="../../assets/img/matiere/{{ matiere.photoMatiere}}" alt="Photo de la matière" width="100 !important">
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-2 col-md-12">
+        <div class="col-lg-6 col-md-6">
           <div class="card">
             <div class="card-header card-header-warning">
               <h4 class="card-title">Professeur:</h4>

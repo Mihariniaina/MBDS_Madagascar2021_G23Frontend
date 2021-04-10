@@ -31,6 +31,10 @@ export class DevoirService {
     return this.http.get<Aggregate>(this.uriNbDevoirRendu+id);
   }
 
+  getNbDevoirRenduOuNonGroupByEleve(estRendu: boolean):Observable<Aggregate[]> {
+    return this.http.get<Aggregate[]>(this.uri+"nbRendu/"+estRendu);
+  }
+
   getDevoirsRendus():Observable<Devoir[]> {
     return this.http.get<Devoir[]>(this.uri+"rendus");
   }
