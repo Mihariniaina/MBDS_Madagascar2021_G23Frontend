@@ -75,45 +75,20 @@ export class DevoirComponent implements OnInit {
   getEleves(){
     this.eleveService.getEleves()
       . subscribe(data => {
-        var x: any[] = [];
-        //nb devoir rendu
-        var mydata = [];
-        this.eleves = data;    
-        var tailleEleves = this.eleves.length;
-        console.log("mipoitra 0");
-        var j = -1;
-
+        var mydevoir: any[] = [];
+        this.eleves = data;  
         this.devoirService.getNbDevoirRenduEleve2().subscribe(dataNbDevoir2 => {
-          // j++;
-          //this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat;
-          // this.nbDevoirsRendusParEleves[j] = dataNbDevoir.resultat;
-          mydata = dataNbDevoir2;
-          console.log("Mipoitra 2=="+mydata[0].resultat);
-        });
-
+        var tailleEleves = this.eleves.length;  
         for(var i = 0; i < tailleEleves; i++){
-          var idEleve = this.eleves[i]._id;
-          x[i] = this.eleves[i]._id;
-          //name to bar
-          console.log("Mipoitra 1");
-          this.barChartLabels[i] = this.eleves[i].nom;
-          this.devoirService.getNbDevoirRenduEleve(idEleve)
-          .subscribe(dataNbDevoir => {
-            // j++;
-            // //this.nbDevoirsRendus[dataNbDevoir._id] = dataNbDevoir.resultat; 
-            // this.nbDevoirsRendusParEleves[j] = dataNbDevoir.resultat;
-            // console.log("Mipoitra 2=="+dataNbDevoir._id);
-          });
-          // console.log("Mipoitra 3");
-          // x = [8,2,3,4,5,6,9];
-        }
-        //console.log("hehe=" + this.nbDevoirsRendusParEleves[0]);
-        //console.log("Mipoitra 4+");
-        
-        this.barChartData = [
-          { data: [8,2,3,4,5,6,7], label: 'Dévoirs rendus' }
-        ];
-        //console.log("Mipoitra 5="+this.barChartData);
+            //name to bar
+            this.barChartLabels[i] = dataNbDevoir2[i]._id;
+            //nbdevoir to bar
+            mydevoir[i] = dataNbDevoir2[i].resultat;
+          }
+          this.barChartData = [
+            { data: mydevoir, label: 'Dévoirs rendus' }
+          ];
+        });
         this.resourcesLoaded = false;
       });
   }

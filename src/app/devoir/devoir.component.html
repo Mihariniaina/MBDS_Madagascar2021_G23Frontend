@@ -43,11 +43,12 @@
     </div>
   </div>
 </cdk-virtual-scroll-viewport> 
+<br/>
+<h3>Nombre des devoirs rendu pour chaque élèves</h3>
 <div class="chart-wrapper">
   <div class="align-center">
     <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
   </div>
-  <p>Nombre de devoir rendu: {{ nbDevoirsRendusParEleves[0] }}</p>
   <canvas baseChart 
   [datasets]="barChartData"
   [labels]="barChartLabels"
