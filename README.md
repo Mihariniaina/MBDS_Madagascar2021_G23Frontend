@@ -36,7 +36,6 @@ Les fonctionnalités développées sont:
 - Scroll infini de la liste des devoirs
 - Ajouter des photos pour chaque élève et les mettre dans un Material Card 
 - Ajouter une photo pour la matière et pour le professeur
-- Dans l'ajout, la modification et le détails du devoir, lorsqu'on clique sur un nom d'un élève, la photo de l'élève se change automatiquement
 6. Ajout de 500 devoirs dans la base de données
 7. Ajout du menu aide qui indique des liens qui nous ont aidé pour la réalisation du projet
 8. Hébergement sur Heroku
@@ -47,4 +46,5 @@ En dehors des fonctionnalités demandées, le groupe 23 a ajouté d'autres fonct
 2. La recherche de devoir selon le nom de l'élève, le nom de la matière, le nom du professeur ou le nom du devoir
 3. Le nombre de devoir rendus et la moyenne de chaque élève
 4. Ajout de messages de notification (SnackBar Material) pour l'ajout et la modification d'un devoir
-5. Création de collection d'élèves et de matières
+5. Création des collections d'élèves et de matières
+6. Dans l'ajout, la modification et le détails du devoir, lorsqu'on clique sur un nom d'un élève, la photo de l'élève se change automatiquement
