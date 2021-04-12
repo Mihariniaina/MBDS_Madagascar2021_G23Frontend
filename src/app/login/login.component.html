@@ -7,6 +7,9 @@
                     <div class="align-center">
                         <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
                     </div>
+                    <div class="msgErreur">
+                        <p>{{ messageErreur }}</p>
+                    </div>
                     <h2 class="card-title text-center"><i class="fas fa-laugh-wink"></i> ASSIGNMENT-APP </h2>
                     <form class="centerRna" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">

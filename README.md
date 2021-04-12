@@ -1,27 +1,50 @@
-# AssignmentG21Front
+# ASSIGNMENT-APP (MBDS_Madagascar2021_G23Frontend)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+## Informations générales  
+ASSIGNMENT-APP est une application de gestion de devoirs d'une école.  
+L'administrateur pourra donc consulter, ajouter, modifier, faire des recherches et voir les détails des devoirs.  
+Il peut aussi voir les élèves avec leur moyenne et leur nombre de devoirs rendus et également consulter les matières avec les professeurs correspondants.  
+ASSIGNMENT-APP est une application de type MEAN et le code contenu dans ce lien github est le côté FRONTEND de l'application.
 
-## Development server
+## Lancement du projet     
+Comme le projet est déjà deployé, il suffit d'utiliser ce lien pour lancer l'application: [https://mbdsmadagascar2021g23frontend.herokuapp.com](https://mbdsmadagascar2021g23frontend.herokuapp.com).  
+Le login est: Rilah / rilahmdp   
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Auteur    
+L'application a été conçue par le groupe 23 composé de:
+- MIHARINIAINA Andriamihanta Rilah Mario    n°12  
+- RAMIANDRISOA Rindra Ny Aina               n°34
 
-## Code scaffolding
+## Fonctionnalités    
+Les fonctionnalités développées sont:  
+1. Login avec JSON Web Tokens (JWT): si les données entrées sont fausses, on revient sur la page de login avec un message d'erreur.  
+2. L'ajout de nouvelles propriétés au modèle des Devoirs:
+- Auteur (nom de l'élève, mail, dateNaissance, photo)
+- Matière (nom, photoMatiere, professeur, photoProfesseur)
+- Note sur 20
+- Remarque 
+- Nom du devoir 
+3. Améliorations de l'affichage des devoirs
+- Affichage de chaque devoir sous forme de Material Card
+- La vue détails du devoir qui montrera en plus la note s'il a été rendu, sa mention selon sa note et la remarque
+- Les formulaires d'ajout, de modification et de détails d'un devoir proposeront un choix fixe de matière et associeront automatiquement le professeur avec son image.
+4. L'affichage des devoirs rendus et non rendus est séparée
+- Lorsqu'on met une note à un devoir, il devient rendu et apparaitra dans l'onglet "Rendu"
+5. Amélioration du design:
+- Login
+- Ajout header, footer et menu à gauche
+- Scroll infini de la liste des devoirs
+- Ajouter des photos pour chaque élève et les mettre dans un Material Card 
+- Ajouter une photo pour la matière et pour le professeur
+- Dans l'ajout, la modification et le détails du devoir, lorsqu'on clique sur un nom d'un élève, la photo de l'élève se change automatiquement
+6. Ajout de 500 devoirs dans la base de données
+7. Ajout du menu aide qui indique des liens qui nous ont aidé pour la réalisation du projet
+8. Hébergement sur Heroku
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Fonctionnalités en plus    
+En dehors des fonctionnalités demandées, le groupe 23 a ajouté d'autres fonctionnalités:
+1. Le Bar Chart dans la liste des devoirs rendus et non rendus pour montrer d'une façon graphique le nombre de devoirs rendus / non rendus pour chaque élève
+2. La recherche de devoir selon le nom de l'élève, le nom de la matière, le nom du professeur ou le nom du devoir
+3. Le nombre de devoir rendus et la moyenne de chaque élève
+4. Ajout de messages de notification (SnackBar Material) pour l'ajout et la modification d'un devoir
+5. Création de collection d'élèves et de matières

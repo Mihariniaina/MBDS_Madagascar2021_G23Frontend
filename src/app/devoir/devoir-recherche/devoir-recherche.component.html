@@ -1,11 +1,11 @@
   <h3>Résultat de la recherche</h3>
   <h4 class="resultatTexte">{{ resultatTexte }}</h4>
   <br/>
+  <div class="align-center">
+      <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
+  </div>
   <cdk-virtual-scroll-viewport *ngIf="affichageDevoir" itemSize="50" class="example-viewport">
   <!-- <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport"> -->
-    <div class="align-center">
-        <mat-spinner *ngIf="resourcesLoaded"></mat-spinner>
-    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-4" *cdkVirtualFor="let devoir of devoirs">

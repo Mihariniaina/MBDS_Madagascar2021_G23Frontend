@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   pass = "";
   name = 'Rilah';
   password = 'rilahmdp';
+  messageErreur = "";
   
   constructor(
     private formBuilder: FormBuilder,
@@ -64,7 +65,6 @@ export class LoginComponent implements OnInit {
           if (result) { //misy ao am base ilay username
             //get dataPass(encripted)
             this.dbPass = result.password;
-            console.warn('ITO1', "misy ao am bdd =>"+this.dbPass);
 
             //compare formPass, with dataHashPash
             //console.warn('Hash', this.pass);
@@ -73,7 +73,6 @@ export class LoginComponent implements OnInit {
             bcrypt.compare(this.formPass, this.dbPass).then(validPass => {
               // validPass returns true or false
               if(validPass) {
-                console.warn('YES', "mitovy amle tao am bdd le mdp");
                 //service.get token for this user
                 this.loginService.getToken(result._id, result.name, result.mail, result.password).subscribe(
                   result2 => {
@@ -96,15 +95,14 @@ export class LoginComponent implements OnInit {
                 //redirect to app.components and set isLogged = true
               }
               else{
-                console.warn('NO', "Password invalide");
-                
+                this.messageErreur = "Erreur: nom / mot de passe incorrect";
+                this.resourcesLoaded = false;
               }
             });
           }
           else {
-              // do something
-              console.warn('TSIZY', "Tsy misy ao am bdd akory le username io");
-
+            this.messageErreur = "Erreur: nom / mot de passe incorrect";
+            this.resourcesLoaded = false;
           }
       },
       error => {

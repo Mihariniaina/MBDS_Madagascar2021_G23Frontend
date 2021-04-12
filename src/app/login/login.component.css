@@ -9,3 +9,7 @@ body {
 .centerRna{
     text-align: center;
 }
+.msgErreur{
+    text-align: center;
+    color: red;
+}
