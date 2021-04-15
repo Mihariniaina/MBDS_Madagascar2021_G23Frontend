@@ -8,6 +8,16 @@ ASSIGNMENT-APP est une application de type MEAN et le code contenu dans ce lien 
 
 ## Lancement du projet     
 Comme le projet est déjà deployé, il suffit d'utiliser ce lien pour lancer l'application: [https://mbdsmadagascar2021g23frontend.herokuapp.com](https://mbdsmadagascar2021g23frontend.herokuapp.com).  
+
+Et si vous voulez lancer le projet en local, il faut:
+- Télécharger le code source du projet
+- Ouvrir le code source dans un éditeur de texte (Visual Studio Code comme par exemple)
+- Installer NodeJs et mettre à jour le npm
+- Ouvrir un terminal dans le chemin `/MBDS_Madagascar2021_G23Frontend-master/`
+- Faire un `npm install`
+- Faire un `ng serve`
+- Si tout se passe bien, il va indiqué qu'on peut ouvrir notre navigateur et executer http://localhost:4200/ qui va afficher une page de login
+
 Le login est: Rilah / rilahmdp   
 
 ## Auteur    
